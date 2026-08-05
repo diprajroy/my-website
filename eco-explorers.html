@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eco Explorers – Dipraj Roy</title>
+  <meta name="description" content="Meet the Eco Explorers team – a dedicated group of geologists and environmental researchers from the University of Barishal." />
+  <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" href="css/theme-2026.css" />
+  <style>
+    /* Premium card styling – glassmorphism */
+    .team-card {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      padding: 2rem;
+      margin: 1rem auto;
+      max-width: 800px;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    }
+    .team-card h3 { margin-top: 0; color: var(--primary-gradient, #ff8a00); }
+    .member-list { list-style: none; padding: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+    .member-list li { background: rgba(255,255,255,0.1); border-radius: 8px; padding: 0.8rem; text-align: center; }
+    .member-list a { color: var(--accent, #00bfff); text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav-container nav-2026">
+      <a class="logo" href="index.html">Dipraj Roy</a>
+      
+      <!-- Theme Toggle -->
+      <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle dark/light theme">
+        <svg id="theme-icon-moon" style="display:none;" viewBox="0 0 24 24">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+        <svg id="theme-icon-sun" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+      </button>
+
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+      <label for="nav-toggle" class="nav-toggle-label" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </label>
+      <ul class="nav-links">
+        <li><a href="index.html#home" class="nav-link">Home</a></li>
+        <li class="dropdown">
+          <a href="index.html#about" class="nav-link">About</a>
+          <ul class="dropdown-menu">
+            <li><a href="index.html#achievements">Achievements</a></li>
+            <li><a href="index.html#education">Education</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="index.html#research" class="nav-link">Research</a>
+          <ul class="dropdown-menu">
+            <li><a href="index.html#research-experience">Experience</a></li>
+            <li><a href="index.html#publications">Publications</a></li>
+          </ul>
+        </li>
+        <li><a href="index.html#projects" class="nav-link">Projects</a></li>
+        <li class="dropdown">
+          <a href="#" class="nav-link">Gallery</a>
+          <ul class="dropdown-menu">
+            <li><a href="graphics.html">Graphics</a></li>
+            <li><a href="academic-gallery.html">Academic</a></li>
+          </ul>
+        </li>
+        <li><a href="eco-explorers.html" class="nav-link active">Team</a></li>
+        <li><a href="index.html#contact" class="nav-link nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container container-2026">
+    <!-- HERO -->
+    <section class="section-2026 reveal" style="text-align:center;padding-top:4rem;">
+      <span class="pill">University of Barishal • Geology &amp; Mining</span>
+      <h1 style="margin:0.6rem 0 0.4rem;font-size:clamp(1.8rem,5vw,3rem);">Eco <span class="grad-text">Explorers</span></h1>
+      <p class="hero-lead" style="max-width:600px;margin:0 auto 1.5rem;">
+        A multidisciplinary team of geologists, GIS specialists and environmental enthusiasts
+        committed to understanding and protecting our planet.
+      </p>
+      <div class="quick-links" style="justify-content:center;">
+        <a href="mailto:ecoexplorers@gmail.com">Email</a>
+        <a href="https://www.facebook.com/share/1BBkph1srf/" target="_blank" rel="noopener">Facebook</a>
+      </div>
+    </section>
+
+    <!-- TEAM – populated by google-sheets-sync.js; static cards shown if sheet is empty -->
+    <section class="section-2026 reveal" id="team-section">
+      <div class="section-head"><h2>Team Members</h2></div>
+
+      <!-- #eco-team is replaced by JS when sheet has rows -->
+      <div id="eco-team">
+        <!-- Static fallback cards -->
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem;">
+
+          <div class="card-2026" style="text-align:center;">
+            <div style="width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#00bfff,#007bff);
+                 margin:0 auto 0.8rem;display:flex;align-items:center;justify-content:center;
+                 font-size:1.8rem;font-weight:700;color:#fff;">S</div>
+            <h3 style="margin:0 0 0.25rem;">Shudip Paul</h3>
+            <a href="mailto:sudipkundu754@gmail.com" class="btn-2026 small ghost" style="margin-top:0.5rem;">Email</a>
+          </div>
+
+          <div class="card-2026" style="text-align:center;">
+            <div style="width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#ff8a00,#e52e71);
+                 margin:0 auto 0.8rem;display:flex;align-items:center;justify-content:center;
+                 font-size:1.8rem;font-weight:700;color:#fff;">M</div>
+            <h3 style="margin:0 0 0.25rem;">Meghla Halder</h3>
+            <a href="mailto:meghlahalderr@gmail.com" class="btn-2026 small ghost" style="margin-top:0.5rem;">Email</a>
+          </div>
+
+          <div class="card-2026" style="text-align:center;">
+            <div style="width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#43e97b,#38f9d7);
+                 margin:0 auto 0.8rem;display:flex;align-items:center;justify-content:center;
+                 font-size:1.8rem;font-weight:700;color:#fff;">B</div>
+            <h3 style="margin:0 0 0.25rem;">Borni Guha</h3>
+            <a href="mailto:borniguha900@gmail.com" class="btn-2026 small ghost" style="margin-top:0.5rem;">Email</a>
+          </div>
+
+          <div class="card-2026" style="text-align:center;">
+            <div style="width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#a18cd1,#fbc2eb);
+                 margin:0 auto 0.8rem;display:flex;align-items:center;justify-content:center;
+                 font-size:1.8rem;font-weight:700;color:#fff;">D</div>
+            <h3 style="margin:0 0 0.25rem;">Dipraj Roy</h3>
+            <a href="mailto:diprajroy@gmail.com" class="btn-2026 small ghost" style="margin-top:0.5rem;">Email</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-2026">
+    <div class="container container-2026">
+      <p>© 2026 Dipraj Roy • Department of Geology and Mining, University of Barishal</p>
+    </div>
+  </footer>
+  <script src="js/theme-2026.js"></script>
+  <script src="js/google-sheets-sync.js"></script>
+</body>
+</html>

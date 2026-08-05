@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Graphic Designs - Dipraj Roy</title>
+
+  <!-- Reuse your main site styling -->
+  <link rel="stylesheet" href="css/index.css" />
+  <!-- Gallery page styling -->
+  <link rel="stylesheet" href="css/gallery.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav-container nav-2026">
+    <a class="logo" href="index.html">Dipraj Roy</a>
+    
+    <!-- Theme Toggle -->
+    <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle dark/light theme">
+      <svg id="theme-icon-moon" style="display:none;" viewBox="0 0 24 24">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+      <svg id="theme-icon-sun" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+    </button>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+    <label for="nav-toggle" class="nav-toggle-label" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </label>
+    <ul class="nav-links">
+      <li><a href="index.html#home" class="nav-link">Home</a></li>
+      <li class="dropdown">
+        <a href="index.html#about" class="nav-link">About</a>
+        <ul class="dropdown-menu">
+          <li><a href="index.html#achievements">Achievements</a></li>
+          <li><a href="index.html#education">Education</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="index.html#research" class="nav-link">Research</a>
+        <ul class="dropdown-menu">
+          <li><a href="index.html#research-experience">Experience</a></li>
+          <li><a href="index.html#publications">Publications</a></li>
+        </ul>
+      </li>
+      <li><a href="index.html#projects" class="nav-link">Projects</a></li>
+      <li class="dropdown">
+        <a href="#" class="nav-link active">Gallery</a>
+        <ul class="dropdown-menu">
+          <li><a href="graphics.html" class="active">Graphics</a></li>
+          <li><a href="academic-gallery.html">Academic</a></li>
+        </ul>
+      </li>
+      <li><a href="eco-explorers.html" class="nav-link">Team</a></li>
+      <li><a href="index.html#contact" class="nav-link nav-cta">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="container">
+  <h1 class="page-title">Graphic Design Gallery</h1>
+  <p class="page-subtitle">
+    Browse my design works with quick filters and a full-screen lightbox (click any image).
+  </p>
+
+  <div class="gallery-controls" aria-label="Gallery filters">
+    <button class="filter-btn active" data-filter="all" type="button">All</button>
+    <button class="filter-btn" data-filter="poster" type="button">Posters</button>
+    <button class="filter-btn" data-filter="banner" type="button">Banners</button>
+    <button class="filter-btn" data-filter="logo" type="button">Logos</button>
+    <button class="filter-btn" data-filter="social" type="button">Social</button>
+  </div>
+
+  <div class="gallery-masonry" id="gallery">
+    <!-- Update data-category + data-title anytime you want -->
+    <div class="gallery-item" data-category="poster" data-title="Design 1">
+      <img src="assets/graphics/g1.jpg" data-full="assets/graphics/g1.jpg" alt="Design 1" loading="lazy" />
+      <div class="gallery-overlay">
+        <div class="gallery-caption">Design 1</div>
+        <div class="gallery-actions">
+          <button class="icon-btn js-open" type="button" aria-label="Open preview">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M15 3h6v6"></path><path d="M10 14L21 3"></path>
+              <path d="M21 14v7H3V3h7"></path>
+            </svg>
+          </button>
+          <a class="icon-btn" href="assets/graphics/g1.jpg" download aria-label="Download">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <path d="M7 10l5 5 5-5"></path>
+              <path d="M12 15V3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-category="banner" data-title="Design 2">
+      <img src="assets/graphics/g2.jpg" data-full="assets/graphics/g2.jpg" alt="Design 2" loading="lazy" />
+      <div class="gallery-overlay">
+        <div class="gallery-caption">Design 2</div>
+        <div class="gallery-actions">
+          <button class="icon-btn js-open" type="button" aria-label="Open preview">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M15 3h6v6"></path><path d="M10 14L21 3"></path>
+              <path d="M21 14v7H3V3h7"></path>
+            </svg>
+          </button>
+          <a class="icon-btn" href="assets/graphics/g2.jpg" download aria-label="Download">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <path d="M7 10l5 5 5-5"></path>
+              <path d="M12 15V3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-category="logo" data-title="Design 3">
+      <img src="assets/graphics/g3.jpg" data-full="assets/graphics/g3.jpg" alt="Design 3" loading="lazy" />
+      <div class="gallery-overlay">
+        <div class="gallery-caption">Design 3</div>
+        <div class="gallery-actions">
+          <button class="icon-btn js-open" type="button" aria-label="Open preview">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M15 3h6v6"></path><path d="M10 14L21 3"></path>
+              <path d="M21 14v7H3V3h7"></path>
+            </svg>
+          </button>
+          <a class="icon-btn" href="assets/graphics/g3.jpg" download aria-label="Download">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <path d="M7 10l5 5 5-5"></path>
+              <path d="M12 15V3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-category="social" data-title="Design 4">
+      <img src="assets/graphics/g4.jpg" data-full="assets/graphics/g4.jpg" alt="Design 4" loading="lazy" />
+      <div class="gallery-overlay">
+        <div class="gallery-caption">Design 4</div>
+        <div class="gallery-actions">
+          <button class="icon-btn js-open" type="button" aria-label="Open preview">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M15 3h6v6"></path><path d="M10 14L21 3"></path>
+              <path d="M21 14v7H3V3h7"></path>
+            </svg>
+          </button>
+          <a class="icon-btn" href="assets/graphics/g4.jpg" download aria-label="Download">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <path d="M7 10l5 5 5-5"></path>
+              <path d="M12 15V3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-category="poster" data-title="Design 5">
+      <img src="assets/graphics/g5.jpg" data-full="assets/graphics/g5.jpg" alt="Design 5" loading="lazy" />
+      <div class="gallery-overlay">
+        <div class="gallery-caption">Design 5</div>
+        <div class="gallery-actions">
+          <button class="icon-btn js-open" type="button" aria-label="Open preview">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M15 3h6v6"></path><path d="M10 14L21 3"></path>
+              <path d="M21 14v7H3V3h7"></path>
+            </svg>
+          </button>
+          <a class="icon-btn" href="assets/graphics/g5.jpg" download aria-label="Download">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <path d="M7 10l5 5 5-5"></path>
+              <path d="M12 15V3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-category="banner" data-title="Design 6">
+      <img src="assets/graphics/g6.jpg" data-full="assets/graphics/g6.jpg" alt="Design 6" loading="lazy" />
+      <div class="gallery-overlay">
+        <div class="gallery-caption">Design 6</div>
+        <div class="gallery-actions">
+          <button class="icon-btn js-open" type="button" aria-label="Open preview">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M15 3h6v6"></path><path d="M10 14L21 3"></path>
+              <path d="M21 14v7H3V3h7"></path>
+            </svg>
+          </button>
+          <a class="icon-btn" href="assets/graphics/g6.jpg" download aria-label="Download">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <path d="M7 10l5 5 5-5"></path>
+              <path d="M12 15V3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-category="logo" data-title="Design 7">
+      <img src="assets/graphics/g7.jpg" data-full="assets/graphics/g7.jpg" alt="Design 7" loading="lazy" />
+      <div class="gallery-overlay">
+        <div class="gallery-caption">Design 7</div>
+        <div class="gallery-actions">
+          <button class="icon-btn js-open" type="button" aria-label="Open preview">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M15 3h6v6"></path><path d="M10 14L21 3"></path>
+              <path d="M21 14v7H3V3h7"></path>
+            </svg>
+          </button>
+          <a class="icon-btn" href="assets/graphics/g7.jpg" download aria-label="Download">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <path d="M7 10l5 5 5-5"></path>
+              <path d="M12 15V3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-category="social" data-title="Design 8">
+      <img src="assets/graphics/g8.jpg" data-full="assets/graphics/g8.jpg" alt="Design 8" loading="lazy" />
+      <div class="gallery-overlay">
+        <div class="gallery-caption">Design 8</div>
+        <div class="gallery-actions">
+          <button class="icon-btn js-open" type="button" aria-label="Open preview">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M15 3h6v6"></path><path d="M10 14L21 3"></path>
+              <path d="M21 14v7H3V3h7"></path>
+            </svg>
+          </button>
+          <a class="icon-btn" href="assets/graphics/g8.jpg" download aria-label="Download">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <path d="M7 10l5 5 5-5"></path>
+              <path d="M12 15V3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-category="poster" data-title="Design 9">
+      <img src="assets/graphics/g9.jpg" data-full="assets/graphics/g9.jpg" alt="Design 9" loading="lazy" />
+      <div class="gallery-overlay">
+        <div class="gallery-caption">Design 9</div>
+        <div class="gallery-actions">
+          <button class="icon-btn js-open" type="button" aria-label="Open preview">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M15 3h6v6"></path><path d="M10 14L21 3"></path>
+              <path d="M21 14v7H3V3h7"></path>
+            </svg>
+          </button>
+          <a class="icon-btn" href="assets/graphics/g9.jpg" download aria-label="Download">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <path d="M7 10l5 5 5-5"></path>
+              <path d="M12 15V3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-category="banner" data-title="Design 10">
+      <img src="assets/graphics/g10.jpg" data-full="assets/graphics/g10.jpg" alt="Design 10" loading="lazy" />
+      <div class="gallery-overlay">
+        <div class="gallery-caption">Design 10</div>
+        <div class="gallery-actions">
+          <button class="icon-btn js-open" type="button" aria-label="Open preview">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M15 3h6v6"></path><path d="M10 14L21 3"></path>
+              <path d="M21 14v7H3V3h7"></path>
+            </svg>
+          </button>
+          <a class="icon-btn" href="assets/graphics/g10.jpg" download aria-label="Download">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <path d="M7 10l5 5 5-5"></path>
+              <path d="M12 15V3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p class="hint">Tip: use ← / → keys to navigate in preview. Press Esc to close.</p>
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+  <div class="lightbox-content">
+    <button class="lightbox-btn lightbox-close" id="lbClose" type="button" aria-label="Close">✕</button>
+    <img class="lightbox-img" id="lightboxImg" alt="" />
+    <div class="lightbox-bar">
+      <button class="lightbox-btn" id="lbPrev" type="button" aria-label="Previous">← Prev</button>
+      <div class="lightbox-title" id="lightboxTitle">Design</div>
+      <a class="lightbox-btn" id="lbDownload" href="#" download>Download</a>
+      <button class="lightbox-btn" id="lbNext" type="button" aria-label="Next">Next →</button>
+    </div>
+  </div>
+</div>
+
+<footer class="footer-2026">
+  <div class="container container-2026">
+    <p>© 2026 Dipraj Roy • Department of Geology and Mining, University of Barishal</p>
+  </div>
+</footer>
+
+<script src="js/gallery.js"></script>
+<script src="js/theme-2026.js"></script>
+</body>
+</html>

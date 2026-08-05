@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Academic Gallery - Dipraj Roy</title>
+
+  <!-- Main site styling -->
+  <style>
+/* Inlined from css/index.css */
+/* 
+   Legacy index.css 
+   All styles have been migrated to theme-2026.css.
+   This file is intentionally left empty to prevent style conflicts 
+   while maintaining backward compatibility for any hardcoded links.
+*/
+
+</style>
+  <!-- Gallery styling -->
+  <style>
+/* Inlined from css/gallery.css */
+/* Gallery page styles (Wix-like clean cards + filters + lightbox) */
+
+.page-title{
+  text-align:center;
+  margin: 28px 0 10px;
+  color:#fff;
+  font-size:2.2rem;
+  letter-spacing: .5px;
+}
+
+.page-subtitle{
+  text-align:center;
+  margin: 0 auto 22px;
+  max-width: 900px;
+  color:rgba(255,255,255,.92);
+  opacity:.9;
+}
+
+/* Filter pills */
+.gallery-controls{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  justify-content:center;
+  margin: 10px 0 26px;
+}
+
+.filter-btn{
+  border:none;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.06);
+  color:rgba(255,255,255,.92);
+  border: 1px solid rgba(255,255,255,.12);
+  font-weight: 600;
+  box-shadow: 0 8px 18px rgba(0,0,0,.08);
+  cursor:pointer;
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+
+.filter-btn:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 12px 26px rgba(0,0,0,.12);
+}
+
+.filter-btn.active{
+  background: #22c55e;
+  border-color: transparent;
+  color:#fff;
+}
+
+/* Masonry */
+.gallery-masonry{
+  column-count: 3;
+  column-gap: 18px;
+  padding: 0 10px 20px;
+}
+
+@media (max-width: 1024px){
+  .gallery-masonry{ column-count: 2; }
+}
+@media (max-width: 640px){
+  .gallery-masonry{ column-count: 1; }
+}
+
+.gallery-item{
+  break-inside: avoid;
+  margin: 0 0 18px;
+  border-radius: 14px;
+  overflow:hidden;
+  background:rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 10px 22px rgba(0,0,0,.10);
+  position:relative;
+  transform: translateZ(0);
+}
+
+.gallery-item img{
+  width:100%;
+  height:auto;
+  display:block;
+  transition: transform .35s ease, filter .35s ease;
+}
+
+.gallery-item:hover img{
+  transform: scale(1.05);
+  filter: saturate(1.1) contrast(1.05);
+}
+
+/* overlay */
+.gallery-overlay{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:flex-end;
+  padding: 14px;
+  background: linear-gradient(to top, rgba(0,0,0,.55), rgba(0,0,0,0) 55%);
+  opacity:0;
+  transition: opacity .25s ease;
+}
+
+.gallery-item:hover .gallery-overlay{
+  opacity:1;
+}
+
+.gallery-caption{
+  color:#fff;
+  font-weight:700;
+  font-size: 1rem;
+  line-height:1.2;
+}
+
+.gallery-actions{
+  margin-left:auto;
+  display:flex;
+  gap:10px;
+}
+
+.icon-btn{
+  width:40px;
+  height:40px;
+  border-radius: 999px;
+  border:none;
+  cursor:pointer;
+  background: rgba(255,255,255,.92);
+  box-shadow: 0 10px 18px rgba(0,0,0,.18);
+  display:grid;
+  place-items:center;
+  transition: transform .15s ease;
+}
+.icon-btn:hover{ transform: scale(1.05); }
+
+.icon{
+  width:18px;
+  height:18px;
+  display:block;
+}
+
+/* Lightbox */
+.lightbox{
+  position:fixed;
+  inset:0;
+  background: rgba(0,0,0,.86);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index: 2000;
+  padding: 22px;
+}
+
+.lightbox.open{ display:flex; }
+
+.lightbox-content{
+  width: min(1100px, 96vw);
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 18px;
+  padding: 14px;
+  box-shadow: 0 18px 60px rgba(0,0,0,.45);
+  position: relative;
+}
+
+.lightbox-img{
+  width:100%;
+  max-height: 78vh;
+  object-fit: contain;
+  border-radius: 12px;
+  display:block;
+  background: rgba(0,0,0,.25);
+}
+
+.lightbox-bar{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  margin-top: 10px;
+  color:#fff;
+}
+
+.lightbox-title{
+  flex: 1;
+  font-weight: 700;
+  opacity: .95;
+}
+
+.lightbox-btn{
+  border:none;
+  background: rgba(255,255,255,.92);
+  color:#00332a;
+  padding: 10px 12px;
+  border-radius: 12px;
+  cursor:pointer;
+  font-weight: 700;
+  transition: transform .15s ease;
+}
+.lightbox-btn:hover{ transform: translateY(-1px); }
+
+.lightbox-close{
+  position:absolute;
+  top: 12px;
+  right: 12px;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+}
+
+.hint{
+  text-align:center;
+  color:rgba(255,255,255,.65);
+  opacity:.85;
+  margin-top: 10px;
+  font-size: .95rem;
+}
+
+
+/* Notes box */
+.gallery-notes{
+  max-width: 980px;
+  margin: 26px auto 60px;
+  padding: 18px 18px 14px;
+  border-radius: 16px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 10px 28px rgba(0,0,0,.06);
+}
+.gallery-notes h2{
+  margin: 0 0 10px;
+  color:#fff;
+  font-size:1.25rem;
+}
+.gallery-notes ol{
+  margin: 0;
+  padding-left: 18px;
+}
+.gallery-notes li{
+  margin: 6px 0;
+}
+.gallery-notes code{
+  padding: 2px 6px;
+  border-radius: 8px;
+  background: rgba(0,0,0,.06);
+}
+/* Visible photo captions */
+.photo-caption {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,.65);
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* Dark mode / theme friendly */
+body.dark .photo-caption {
+  color: #ccc;
+}
+
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav-container nav-2026">
+    <a target="_parent" class="logo" href="index.html">Dipraj Roy</a>
+    
+    <!-- Theme Toggle -->
+    <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle dark/light theme">
+      <svg id="theme-icon-moon" style="display:none;" viewBox="0 0 24 24">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+      <svg id="theme-icon-sun" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+    </button>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+    <label for="nav-toggle" class="nav-toggle-label" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </label>
+    <ul class="nav-links">
+      <li><a target="_parent" href="index.html#home" class="nav-link">Home</a></li>
+      <li class="dropdown">
+        <a target="_parent" href="index.html#about" class="nav-link">About</a>
+        <ul class="dropdown-menu">
+          <li><a target="_parent" href="index.html#achievements">Achievements</a></li>
+          <li><a target="_parent" href="index.html#education">Education</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a target="_parent" href="index.html#research" class="nav-link">Research</a>
+        <ul class="dropdown-menu">
+          <li><a target="_parent" href="index.html#research-experience">Experience</a></li>
+          <li><a target="_parent" href="index.html#publications">Publications</a></li>
+        </ul>
+      </li>
+      <li><a target="_parent" href="index.html#projects" class="nav-link">Projects</a></li>
+      <li class="dropdown">
+        <a target="_parent" href="#" class="nav-link active">Gallery</a>
+        <ul class="dropdown-menu">
+          <li><a target="_parent" href="graphics.html">Graphics</a></li>
+          <li><a target="_parent" href="academic-gallery.html" class="active">Academic</a></li>
+        </ul>
+      </li>
+      <li><a target="_parent" href="eco-explorers.html" class="nav-link">Team</a></li>
+      <li><a target="_parent" href="index.html#contact" class="nav-link nav-cta">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="container">
+  <h1 class="page-title">Academic Gallery</h1>
+  <p class="page-subtitle">
+    Moments from classrooms, labs, seminars, workshops, and academic events.
+  </p>
+
+  <!-- Filters -->
+  <div class="gallery-controls">
+    <button class="filter-btn active" data-filter="all" type="button">All</button>
+    <button class="filter-btn" data-filter="academic" type="button">Academic</button>
+
+    <button class="filter-btn" data-filter="seminar and conference" type="button">Seminar and Conference</button>
+    <button class="filter-btn" data-filter="event" type="button">Event</button>
+  </div>
+
+  <!-- Gallery -->
+  <div class="gallery-masonry" id="gallery">
+
+        <!-- Photo 2 -->
+    <div class="gallery-item" data-category="academic" data-title="Lab Work">
+      <img src="https://dl4.pushbulletusercontent2.com/AZrZF2Mlw3W9rFdU6HY2GbxeBQKm2shR/d2.jpeg"
+           data-full="https://dl4.pushbulletusercontent2.com/AZrZF2Mlw3W9rFdU6HY2GbxeBQKm2shR/d2.jpeg"
+           alt="Lab Work"
+           loading="lazy" />
+
+      <div class="gallery-overlay">
+        <div class="gallery-caption">Lab Work</div>
+        <div class="gallery-actions">
+          <button class="icon-btn js-open" type="button" aria-label="Open preview">👁</button>
+          <a target="_parent" class="icon-btn" href="https://dl4.pushbulletusercontent2.com/AZrZF2Mlw3W9rFdU6HY2GbxeBQKm2shR/d2.jpeg" download aria-label="Download">⬇</a>
+        </div>
+      </div>
+
+      <div class="photo-caption">Masters Thesis Defence Day with Respected Supervisor Dr. Dhiman Kumer Roy</div>
+    </div>
+
+            <!-- Photo 2 -->
+    <div class="gallery-item" data-category="academic" data-title="Lab Work">
+      <img src="https://dl4.pushbulletusercontent2.com/lLtkj1VJ3l0eLkXTYnN0w8LCpfUpCHvk/IMG_3475.HEIC.png"
+           data-full="https://dl4.pushbulletusercontent2.com/lLtkj1VJ3l0eLkXTYnN0w8LCpfUpCHvk/IMG_3475.HEIC.png"
+           alt="Lab Work"
+           loading="lazy" />
+
+      <div class="gallery-overlay">
+        <div class="gallery-caption">Lab Work</div>
+        <div class="gallery-actions">
+          <button class="icon-btn js-open" type="button" aria-label="Open preview">👁</button>
+          <a target="_parent" class="icon-btn" href="https://dl4.pushbulletusercontent2.com/lLtkj1VJ3l0eLkXTYnN0w8LCpfUpCHvk/IMG_3475.HEIC.png" download aria-label="Download">⬇</a>
+        </div>
+      </div>
+
+      <div class="photo-caption">GeoChemical Research Lab, BU (Batch 2022-23)</div>
+    </div>
+
+    <!-- Photo 1 -->
+    <div class="gallery-item" data-category="academic" data-title="Masters Thesis">
+      <img src="https://dl4.pushbulletusercontent2.com/UY69u3UQHa7pLWswgIMVnoV5sC3lQ9Fr/d1.jpeg"
+           data-full="https://dl4.pushbulletusercontent2.com/UY69u3UQHa7pLWswgIMVnoV5sC3lQ9Fr/d1.jpeg"
+           alt="Classroom Session"
+           loading="lazy" />
+
+      <div class="gallery-overlay">
+        <div class="gallery-caption">Classroom Session</div>
+        <div class="gallery-actions">
+          <button class="icon-btn js-open" type="button" aria-label="Open preview">👁</button>
+          <a target="_parent" class="icon-btn" href="https://dl4.pushbulletusercontent2.com/UY69u3UQHa7pLWswgIMVnoV5sC3lQ9Fr/d1.jpeg" download aria-label="Download">⬇</a>
+        </div>
+      </div>
+
+      <div class="photo-caption">Masters Thesis Defence Day with Respected External Proffessor</div>
+    </div>
+
+
+
+    <!-- Photo 3 -->
+    <div class="gallery-item" data-category="academic" data-title="Seminar Presentation">
+      <img src="https://dl4.pushbulletusercontent2.com/0dQSxzHAUcVcWrwE3PMtV6QzXxhWmNAZ/d3.jpeg"
+           data-full="https://dl4.pushbulletusercontent2.com/0dQSxzHAUcVcWrwE3PMtV6QzXxhWmNAZ/d3.jpeg"
+           alt="Seminar Presentation"
+           loading="lazy" />
+
+      <div class="gallery-overlay">
+        <div class="gallery-caption">Seminar Presentation</div>
+        <div class="gallery-actions">
+          <button class="icon-btn js-open" type="button" aria-label="Open preview">👁</button>
+          <a target="_parent" class="icon-btn" href="https://dl4.pushbulletusercontent2.com/0dQSxzHAUcVcWrwE3PMtV6QzXxhWmNAZ/d3.jpeg" download aria-label="Download">⬇</a>
+        </div>
+      </div>
+
+      <div class="photo-caption">Masters Thesis Defence Day (Presnetation)</div>
+    </div>
+
+    <!-- Photo 4 -->
+    <div class="gallery-item" data-category="academic" data-title="Academic Event">
+      <img src="https://dl4.pushbulletusercontent2.com/LqVmR7tbg9340Z7jADrM0MQoAbl2SBbH/d4.jpeg"
+           data-full="https://dl4.pushbulletusercontent2.com/LqVmR7tbg9340Z7jADrM0MQoAbl2SBbH/d4.jpeg"
+           alt="Academic Event"
+           loading="lazy" />
+
+      <div class="gallery-overlay">
+        <div class="gallery-caption">Academic Event</div>
+        <div class="gallery-actions">
+          <button class="icon-btn js-open" type="button" aria-label="Open preview">👁</button>
+          <a target="_parent" class="icon-btn" href="https://dl4.pushbulletusercontent2.com/LqVmR7tbg9340Z7jADrM0MQoAbl2SBbH/d4.jpeg" download aria-label="Download">⬇</a>
+        </div>
+      </div>
+
+      <div class="photo-caption">Masters Thesis Defence 6th Feb 2026</div>
+    </div>
+
+    <!-- Photo 5 -->
+    <div class="gallery-item" data-category="academic" data-title="Academic Event">
+      <img src="https://dl4.pushbulletusercontent2.com/7eN3BAF7oO1Dn0QZXqfNqJ9OFsUsSqyu/d5.jpeg"
+           data-full="https://dl4.pushbulletusercontent2.com/7eN3BAF7oO1Dn0QZXqfNqJ9OFsUsSqyu/d5.jpeg"
+           alt="Academic Event"
+           loading="lazy" />
+
+      <div class="gallery-overlay">
+        <div class="gallery-caption">Academic Event</div>
+        <div class="gallery-actions">
+          <button class="icon-btn js-open" type="button" aria-label="Open preview">👁</button>
+          <a target="_parent" class="icon-btn" href="https://dl4.pushbulletusercontent2.com/7eN3BAF7oO1Dn0QZXqfNqJ9OFsUsSqyu/d5.jpeg" download aria-label="Download">⬇</a>
+        </div>
+      </div>
+
+      <div class="photo-caption">Gala Night With Respected Supervisor Dr. Dhiman Kumer Roy (7th Feb 2026)</div>
+    </div>
+
+    <!-- Photo 6 -->
+    <div class="gallery-item" data-category="academic" data-title="Academic Event">
+      <img src="https://dl4.pushbulletusercontent2.com/fzkSJHGY7e2Pw1DNwqMyypj3lo1y5b8F/d6.jpeg"
+           data-full="https://dl4.pushbulletusercontent2.com/fzkSJHGY7e2Pw1DNwqMyypj3lo1y5b8F/d6.jpeg"
+           alt="Academic Event"
+           loading="lazy" />
+
+      <div class="gallery-overlay">
+        <div class="gallery-caption">Academic Event</div>
+        <div class="gallery-actions">
+          <button class="icon-btn js-open" type="button" aria-label="Open preview">👁</button>
+          <a target="_parent" class="icon-btn" href="https://dl4.pushbulletusercontent2.com/fzkSJHGY7e2Pw1DNwqMyypj3lo1y5b8F/d6.jpeg" download aria-label="Download">⬇</a>
+        </div>
+      </div>
+
+      <div class="photo-caption">Masters Thesis Defence 6th Feb 2026</div>
+    </div>
+
+    <!-- Photo 7 -->
+    <div class="gallery-item" data-category="seminar and conference" data-title="Academic Event">
+      <img src="https://dl4.pushbulletusercontent2.com/hnj43AcWhcoBK2PpctI3EtVlIAOawLBs/D_7.jpeg"
+           data-full="https://dl4.pushbulletusercontent2.com/hnj43AcWhcoBK2PpctI3EtVlIAOawLBs/D_7.jpeg.jpeg"
+           alt="Academic Event"
+           loading="lazy" />
+
+      <div class="gallery-overlay">
+        <div class="gallery-caption">Academic Event</div>
+        <div class="gallery-actions">
+          <button class="icon-btn js-open" type="button" aria-label="Open preview">👁</button>
+          <a target="_parent" class="icon-btn" href="https://dl4.pushbulletusercontent2.com/hnj43AcWhcoBK2PpctI3EtVlIAOawLBs/D_7.jpeg" download aria-label="Download">⬇</a>
+        </div>
+      </div>
+
+      <div class="photo-caption">Attended International Conference on Environment and Changing Climate 2025 at IUB, BU</div>
+    </div>
+
+        <!-- Photo 7 -->
+    <div class="gallery-item" data-category="seminar and conference" data-title="Academic Event">
+      <img src="https://dl4.pushbulletusercontent2.com/Uj1JfGzRlaV2eBkOX76oSL82Y5GjeBNu/WhatsApp%20Image%202026-02-10%20at%2010.14.45%20AM.jpeg"
+           data-full="https://dl4.pushbulletusercontent2.com/Uj1JfGzRlaV2eBkOX76oSL82Y5GjeBNu/WhatsApp%20Image%202026-02-10%20at%2010.14.45%20AM.jpeg"
+           alt="Academic Event"
+           loading="lazy" />
+
+      <div class="gallery-overlay">
+        <div class="gallery-caption">Academic Event</div>
+        <div class="gallery-actions">
+          <button class="icon-btn js-open" type="button" aria-label="Open preview">👁</button>
+          <a target="_parent" class="icon-btn" href="https://dl4.pushbulletusercontent2.com/Uj1JfGzRlaV2eBkOX76oSL82Y5GjeBNu/WhatsApp%20Image%202026-02-10%20at%2010.14.45%20AM.jpeg" download aria-label="Download">⬇</a>
+        </div>
+      </div>
+
+      <div class="photo-caption">Masters Thesis Session 2022-23 (at GLM, BU)</div>
+    </div>
+
+  </div>
+
+  <p class="hint">Tip: Click an image for fullscreen view. Use ← / → keys. Press Esc to close.</p>
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+  <div class="lightbox-content">
+    <button class="lightbox-btn lightbox-close" id="lbClose" type="button" aria-label="Close">✕</button>
+    <img class="lightbox-img" id="lightboxImg" alt="" />
+    <div class="lightbox-bar">
+      <button class="lightbox-btn" id="lbPrev" type="button" aria-label="Previous">← Prev</button>
+      <div class="lightbox-title" id="lightboxTitle"></div>
+      <a target="_parent" class="lightbox-btn" id="lbDownload" href="#" download>Download</a>
+      <button class="lightbox-btn" id="lbNext" type="button" aria-label="Next">Next →</button>
+    </div>
+  </div>
+</div>
+
+<footer class="footer-2026">
+  <div class="container container-2026">
+    <p>© 2026 Dipraj Roy • Department of Geology and Mining, University of Barishal</p>
+  </div>
+</footer>
+
+<script>
+/* Inlined from js/gallery.js */
+(function(){
+  const $ = (s, el=document) => el.querySelector(s);
+  const $$ = (s, el=document) => Array.from(el.querySelectorAll(s));
+
+  const buttons = $$(".filter-btn");
+  const items = $$(".gallery-item");
+
+  function setActive(btn){
+    buttons.forEach(b => b.classList.toggle("active", b === btn));
+  }
+
+  function filter(category){
+    items.forEach(card => {
+      const cat = card.getAttribute("data-category") || "all";
+      const show = category === "all" || cat === category;
+      card.style.display = show ? "block" : "none";
+    });
+  }
+
+  // Lightbox
+  const lightbox = $("#lightbox");
+  const lbImg = $("#lightboxImg");
+  const lbTitle = $("#lightboxTitle");
+  const btnPrev = $("#lbPrev");
+  const btnNext = $("#lbNext");
+  const btnClose = $("#lbClose");
+  const btnDownload = $("#lbDownload");
+
+  let currentIndex = -1;
+  const visibleItems = () => items.filter(i => i.style.display !== "none");
+
+  function openLightbox(index){
+    const vis = visibleItems();
+    if(index < 0 || index >= vis.length) return;
+    currentIndex = index;
+
+    const card = vis[currentIndex];
+    const img = $("img", card);
+    const title = card.getAttribute("data-title") || img.alt || "Design";
+
+    lbImg.src = img.getAttribute("data-full") || img.src;
+    lbImg.alt = title;
+    lbTitle.textContent = title;
+    btnDownload.href = img.getAttribute("data-full") || img.src;
+
+    lightbox.classList.add("open");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeLightbox(){
+    lightbox.classList.remove("open");
+    document.body.style.overflow = "";
+    lbImg.src = "";
+    currentIndex = -1;
+  }
+
+  function next(delta){
+    const vis = visibleItems();
+    if(!vis.length) return;
+    currentIndex = (currentIndex + delta + vis.length) % vis.length;
+    openLightbox(currentIndex);
+  }
+
+  // Bind filter buttons
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const cat = btn.getAttribute("data-filter");
+      setActive(btn);
+      filter(cat);
+    });
+  });
+
+  // Bind cards (open)
+  function bindCardOpen(){
+    const vis = visibleItems();
+    vis.forEach((card, idx) => {
+      const openBtn = $(".js-open", card);
+      const img = $("img", card);
+
+      const open = (e) => {
+        e.preventDefault();
+        // recompute index against current visible list (in case of filter changes)
+        const fresh = visibleItems();
+        const newIdx = fresh.indexOf(card);
+        openLightbox(newIdx);
+      };
+
+      openBtn?.addEventListener("click", open);
+      img?.addEventListener("click", open);
+    });
+  }
+
+  // Re-bind after filtering (simple approach)
+  function rebind(){
+    // remove old handlers by cloning nodes
+    items.forEach(card => {
+      const clone = card.cloneNode(true);
+      card.replaceWith(clone);
+    });
+  }
+
+  // Because we clone nodes, refresh references:
+  function refresh(){
+    // Rebuild references
+    const newItems = $$(".gallery-item");
+    items.length = 0;
+    newItems.forEach(i => items.push(i));
+    bindCardOpen();
+  }
+
+  // Initial binding
+  bindCardOpen();
+
+  // If you want cloning-safe rebind on every filter click:
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      rebind();
+      refresh();
+    }, {capture:false});
+  });
+
+  // Lightbox controls
+  btnPrev.addEventListener("click", () => next(-1));
+  btnNext.addEventListener("click", () => next(1));
+  btnClose.addEventListener("click", closeLightbox);
+
+  lightbox.addEventListener("click", (e) => {
+    if(e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if(!lightbox.classList.contains("open")) return;
+    if(e.key === "Escape") closeLightbox();
+    if(e.key === "ArrowLeft") next(-1);
+    if(e.key === "ArrowRight") next(1);
+  });
+
+  // Default state
+  const defaultBtn = buttons.find(b => b.dataset.filter === "all") || buttons[0];
+  if(defaultBtn){ setActive(defaultBtn); filter(defaultBtn.dataset.filter); }
+})();
+
+</script>
+<script>
+/* Inlined from js/theme-2026.js */
+// Reveal on scroll
+const els = document.querySelectorAll(".reveal");
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add("is-visible");
+  });
+}, { threshold: 0.12 });
+
+els.forEach(el => io.observe(el));
+
+// Hero slideshow (optional)
+const heroImgs = document.querySelectorAll(".hero-img");
+let idx = 0;
+setInterval(() => {
+  if (!heroImgs.length) return;
+  heroImgs.forEach(im => im.classList.remove("is-active"));
+  idx = (idx + 1) % heroImgs.length;
+  heroImgs[idx].classList.add("is-active");
+}, 3500);
+
+
+// Theme toggle logic
+const themeToggleBtn = document.getElementById('theme-toggle');
+const themeIconMoon = document.getElementById('theme-icon-moon');
+const themeIconSun = document.getElementById('theme-icon-sun');
+
+if (themeToggleBtn) {
+  const savedTheme = localStorage.getItem('theme');
+  const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+  const setTheme = (theme) => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    if (theme === 'light') {
+      themeIconMoon.style.display = 'block';
+      themeIconSun.style.display = 'none';
+    } else {
+      themeIconMoon.style.display = 'none';
+      themeIconSun.style.display = 'block';
+    }
+  };
+
+  // Initial theme setup
+  if (savedTheme) {
+    setTheme(savedTheme);
+  } else {
+    setTheme(systemPrefersDark ? 'dark' : 'light');
+  }
+
+  themeToggleBtn.addEventListener('click', () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    setTheme(currentTheme === 'light' ? 'dark' : 'light');
+  });
+}
+
+</script>
+</body>
+</html>
